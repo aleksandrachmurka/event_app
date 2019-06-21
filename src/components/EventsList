@@ -1,0 +1,16 @@
+import React from 'react';
+
+const EventsList = () => {
+
+    return(
+        <>
+            <ul>
+                {events.map( event => ( 
+                    <li>{event}</li>
+                ))}
+            </ul>
+        </>
+    )
+}
+
+export default EventsList;
