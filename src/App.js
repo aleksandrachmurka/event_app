@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import EventsList from './components/EventsList'
+import EventsList from './components/EventsList';
 
-function App() {
+const App = () => {
+  const [events, setEvents ] = useState([]);
+
   return (
     <div className="app">
       <header className="app__header">
         <h1>Events</h1>
       </header>
       <main className="app__main">
+        <Form />
         <EventsList />
       </main>
     </div>
