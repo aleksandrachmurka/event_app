@@ -7,8 +7,7 @@ const App = () => {
   const [events, setEvents ] = useState([]);
 
   const addEvent = (event) => {
-    const newEvents = [...events, { event}];
-    setEvents(newEvents);
+    setEvents([...events, event ]);
   }
 
   return (

@@ -1,22 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
+import useForm from '../customHooks';
 
 const Form = ({ addEvent }) => {
-    const [value, setValue] = useState('');
+    // <p>{event.category}</p>
+    // <address>{event.location}</address>
+    // <time datetime={event.date}></time>
+    // <p>{event.description}</p>
 
-    const handleSubmit = e => {
-        if (!value) return;
-        addEvent(value);
-        setValue('');
-        e.preventDefault();
+    const [events, setEvents] = useState([]);
+
+    const { handleSubmit, handleInput, inputs } = useForm(addEvent);
+
+    function addEvent() {
+        const event = {...inputs};
+        setEvents([...events, event]);
+        console.log(event);
+
     }
+ 
+
+
+    // const handleSubmit = e => {
+    //     createEvent()
+    //     if (!event) return;
+    //     addEvent(event);
+    //     setEvent('');
+    //     e.preventDefault();
+    // }
+
     
     return (
         <form onSubmit={handleSubmit}>
-            <input type="textarea" 
-            placeholder="Add event description" 
-            value={value} 
-            onChange={e=> setValue(e.target.value)}
+            <label>Event Title</label>
+            <input type="text" name="eventTitle"
+            placeholder="Add event title" 
+            value={inputs.eventTitle} 
+            onChange={handleInput}
+            required
             />
+
+            <label>Event Organizer</label>
+            <input type="text" name="eventOrganizer"
+            placeholder="Add events organizer" 
+            value={inputs.eventOrganizer} 
+            onChange={handleInput}
+            required
+            />
+
             <button type="submit"> Add Event </button>
         </form>
     )
