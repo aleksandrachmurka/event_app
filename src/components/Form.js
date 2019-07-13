@@ -1,51 +1,48 @@
 import React, { useState} from 'react';
 import useForm from '../customHooks';
 
-const Form = ({ addEvent }) => {
-    // <p>{event.category}</p>
+const Form = ({ ...props }) => {
     // <address>{event.location}</address>
     // <time datetime={event.date}></time>
-    // <p>{event.description}</p>
 
-    const [events, setEvents] = useState([]);
+    const { handleSubmit, handleInput, inputs } = useForm(passEvent);
 
-    const { handleSubmit, handleInput, inputs } = useForm(addEvent);
-
-    function addEvent() {
+    function passEvent() {
         const event = {...inputs};
-        setEvents([...events, event]);
-        console.log(event);
-
+        props.addEvent(event)
     }
- 
-
-
-    // const handleSubmit = e => {
-    //     createEvent()
-    //     if (!event) return;
-    //     addEvent(event);
-    //     setEvent('');
-    //     e.preventDefault();
-    // }
-
     
     return (
         <form onSubmit={handleSubmit}>
-            <label>Event Title</label>
-            <input type="text" name="eventTitle"
+            <label>What is Event title</label>
+            <input type="text" name="title"
             placeholder="Add event title" 
-            value={inputs.eventTitle} 
             onChange={handleInput}
             required
             />
 
+            <label>When will it take place?</label>
+            <input type="date"  onChange={handleInput} name="date"/>
+            <input type="time" onChange={handleInput} name="time" />
+
+            <label>Add Event description</label>
+            <textarea onChange={handleInput} name="description" type="text" rows="5" cols="10" maxlength="360" />
+
             <label>Event Organizer</label>
-            <input type="text" name="eventOrganizer"
+            <input type="text" name="organizer"
             placeholder="Add events organizer" 
-            value={inputs.eventOrganizer} 
             onChange={handleInput}
             required
             />
+
+            <label>Choose Event category</label>
+            <select onChange={handleInput} name="category" required>
+                <option value="" disabled selected>Please select category</option>
+                <option value="music">Music</option>
+                <option value="theatre">Theatre</option>
+                <option value="meeting">Meeting</option>
+                <option value="exhibition">Exhibition</option>
+            </select>
 
             <button type="submit"> Add Event </button>
         </form>
