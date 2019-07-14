@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { StoreContext } from './StoreContext.js';
 
-const useForm = (callback) => {
+export const useForm = (callback) => {
     const [inputs, setInputs] = useState([]);
 
     const handleSubmit = e => {
@@ -42,5 +42,3 @@ export const useActions = () => {
       removeEvent
     };
 };
-
-export default useForm;

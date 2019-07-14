@@ -1,5 +1,5 @@
 import React from 'react';
-import useForm, { useActions } from '../customHooks';
+import { useForm, useActions } from '../customHooks';
 
 const Form = ({ ...props }) => {
     // <address>{event.location}</address>

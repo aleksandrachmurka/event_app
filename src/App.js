@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import './App.css';
-import { StoreContext } from './StoreContext.js';
 import Form from './components/Form.js';
 import EventsList from './components/EventsList.js';
 

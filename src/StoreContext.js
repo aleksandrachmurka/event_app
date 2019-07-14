@@ -11,7 +11,7 @@ const StoreProvider = ({children}) => {
     useEffect(()=> {console.log(state)}, [state]);
 
     return (
-        <StoreContext.Provider value={{ state, dispatch, actions}}>
+        <StoreContext.Provider value={{ state, dispatch, actions }}>
             {children}
         </StoreContext.Provider>
     )
