@@ -1,15 +1,16 @@
-import React, { useState} from 'react';
-import useForm from '../customHooks';
+import React from 'react';
+import useForm, { useActions } from '../customHooks';
 
 const Form = ({ ...props }) => {
     // <address>{event.location}</address>
     // <time datetime={event.date}></time>
 
     const { handleSubmit, handleInput, inputs } = useForm(passEvent);
+    const { addEvent } = useActions();
 
     function passEvent() {
-        const event = {...inputs};
-        props.addEvent(event)
+        const newEvent = {...inputs};
+        addEvent(newEvent);
     }
     
     return (

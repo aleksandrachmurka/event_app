@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import { StoreContext } from '../StoreContext.js';
 import Event from './Event';
 
-const EventsList = ({events}) => {
+const EventsList = () => {
     // const [filteredEvents, setFilteredEvents] = useState(events);
 
     // const filterEvents = e => {
@@ -10,10 +11,12 @@ const EventsList = ({events}) => {
     //     setFilteredEvents(filteredEvents);
     // }
 
+    const { state } = useContext(StoreContext);
+
 
     return (
         <div>
-            {events.map( event => ( 
+            {state.events.map( event => ( 
                 <Event event={event} />
             ))}
         </div>
