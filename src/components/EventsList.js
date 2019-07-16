@@ -13,11 +13,10 @@ const EventsList = () => {
 
     const { state } = useContext(StoreContext);
 
-
     return (
         <div>
             {state.events.map( event => ( 
-                <Event event={event} />
+                <Event event={event} key={event.key} />
             ))}
         </div>
     )

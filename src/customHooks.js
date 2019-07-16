@@ -33,8 +33,8 @@ export const useActions = () => {
         dispatch({ type: 'ADD_EVENT', value: newEvent });
     }
 
-    function removeEvent(eventToRemove) {
-        dispatch({ type: 'REMOVE_EVENT', value: eventToRemove})
+    function removeEvent(eventKey) {
+        dispatch({ type: 'REMOVE_EVENT', value: eventKey})
     }
     
     return {

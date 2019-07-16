@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         events: state.events.filter(
-          event =>  event !== action.value)
+          event =>  event.key !== action.value)
       };
     default:
       return state;

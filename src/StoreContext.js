@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, createContext } from 'react';
 import { initialState, reducer } from './reducer.js';
-import useActions from './customHooks.js';
+import { useActions } from './customHooks.js';
 
 const StoreContext = createContext(initialState);
 
