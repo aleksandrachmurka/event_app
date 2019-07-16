@@ -10,7 +10,6 @@ export const useForm = (callback) => {
         }
         callback();
         setInputs(inputs => inputs = {})
-        console.log(inputs)
     }
 
     const handleInput = e => {
