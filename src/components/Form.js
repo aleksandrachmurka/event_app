@@ -20,7 +20,7 @@ const Form = ({ ...props }) => {
 
             <form onSubmit={handleSubmit}>
                 
-                <label for="name">
+                <label htmlFor="name">
                     What is Event title
                     <input type="text" name="title" id="name" placeholder="Add event title" onChange={handleInput}
                     required/>
@@ -28,29 +28,29 @@ const Form = ({ ...props }) => {
                
                 <fieldset>
                     <legend>When will it take place?</legend>
-                    <label for="date">
+                    <label htmlFor="date">
                         Date
                         <input type="date" name="date" id="date" onChange={handleInput}/>
                     </label>
-                    <label for="time">
+                    <label htmlFor="time">
                         Time
                         <input type="time" name="time" id="time" onChange={handleInput}/>
                     </label>
                 </fieldset>
 
-                <label for="description">
+                <label htmlFor="description">
                     Add Event description
                     <textarea type="text" rows="5" cols="10" maxLength="360" name="description" 
                     id="description" onChange={handleInput} />
                 </label>
 
-                <label for="organizer">
+                <label htmlFor="organizer">
                     Event Organizer
                     <input type="text" placeholder="Add events organizer" name="organizer" 
                     id="organizer" onChange={handleInput} required />
                 </label>
 
-                <label for="category">
+                <label htmlFor="category">
                     Choose Event category
                     <select name="category" id="category" onChange={handleInput} required>
                         <option velue="" defaultselected="true">Please select category</option>
