@@ -9,6 +9,7 @@ export const useForm = (callback) => {
             e.preventDefault();
         }
         callback();
+        e.target.reset();
         setInputs(inputs => inputs = {})
     }
 

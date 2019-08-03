@@ -3,7 +3,6 @@ import { useForm, useActions } from '../customHooks';
 
 const Form = ({ ...props }) => {
     // <address>{event.location}</address>
-    //to do: clear input after submitting
 
     const { handleSubmit, handleInput, inputs } = useForm(passEvent);
     const { addEvent } = useActions();
@@ -53,8 +52,8 @@ const Form = ({ ...props }) => {
 
                 <label for="category">
                     Choose Event category
-                    <select onChange={handleInput} name="category" id="category" required>
-                        <option value="" disabled selected>Please select category</option>
+                    <select name="category" id="category" onChange={handleInput} required>
+                        <option velue="" defaultselected="true">Please select category</option>
                         <option value="music">Music</option>
                         <option value="theatre">Theatre</option>
                         <option value="meeting">Meeting</option>
