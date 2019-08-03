@@ -3,7 +3,6 @@ import { useForm, useActions } from '../customHooks';
 
 const Form = ({ ...props }) => {
     // <address>{event.location}</address>
-    // <time datetime={event.date}></time>
     //to do: clear input after submitting
 
     const { handleSubmit, handleInput, inputs } = useForm(passEvent);
@@ -17,39 +16,54 @@ const Form = ({ ...props }) => {
     }
     
     return (
-        <form onSubmit={handleSubmit}>
-            <label>What is Event title</label>
-            <input type="text" name="title"
-            placeholder="Add event title" 
-            onChange={handleInput}
-            required
-            />
+        <>
+            <p>Add event</p>
 
-            <label>When will it take place?</label>
-            <input type="date"  onChange={handleInput} name="date"/>
-            <input type="time" onChange={handleInput} name="time" />
+            <form onSubmit={handleSubmit}>
+                
+                <label for="name">
+                    What is Event title
+                    <input type="text" name="title" id="name" placeholder="Add event title" onChange={handleInput}
+                    required/>
+                </label>
+               
+                <fieldset>
+                    <legend>When will it take place?</legend>
+                    <label for="date">
+                        Date
+                        <input type="date" name="date" id="date" onChange={handleInput}/>
+                    </label>
+                    <label for="time">
+                        Time
+                        <input type="time" name="time" id="time" onChange={handleInput}/>
+                    </label>
+                </fieldset>
 
-            <label>Add Event description</label>
-            <textarea onChange={handleInput} name="description" type="text" rows="5" cols="10" maxLength="360" />
+                <label for="description">
+                    Add Event description
+                    <textarea type="text" rows="5" cols="10" maxLength="360" name="description" 
+                    id="description" onChange={handleInput} />
+                </label>
 
-            <label>Event Organizer</label>
-            <input type="text" name="organizer"
-            placeholder="Add events organizer" 
-            onChange={handleInput}
-            required
-            />
+                <label for="organizer">
+                    Event Organizer
+                    <input type="text" placeholder="Add events organizer" name="organizer" 
+                    id="organizer" onChange={handleInput} required />
+                </label>
 
-            <label>Choose Event category</label>
-            <select onChange={handleInput} name="category" required>
-                <option value="" disabled selected>Please select category</option>
-                <option value="music">Music</option>
-                <option value="theatre">Theatre</option>
-                <option value="meeting">Meeting</option>
-                <option value="exhibition">Exhibition</option>
-            </select>
+                <label for="category">Choose Event category
+                    <select onChange={handleInput} name="category" id="category" required>
+                        <option value="" disabled selected>Please select category</option>
+                        <option value="music">Music</option>
+                        <option value="theatre">Theatre</option>
+                        <option value="meeting">Meeting</option>
+                        <option value="exhibition">Exhibition</option>
+                    </select>
+                </label>
 
-            <button type="submit"> Add Event </button>
-        </form>
+                <button type="submit"> Add Event </button>
+            </form>
+        </>
     )
 }
 
