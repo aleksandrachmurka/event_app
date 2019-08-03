@@ -1,16 +1,15 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { StoreContext } from './StoreContext.js';
 
-const useForm = (callback) => {
+export const useForm = (callback) => {
     const [inputs, setInputs] = useState([]);
 
     const handleSubmit = e => {
-        //clear inputs
         if(e) {
             e.preventDefault();
         }
         callback();
         setInputs(inputs => inputs = {})
-        console.log(inputs)
     }
 
     const handleInput = e => {
@@ -25,4 +24,20 @@ const useForm = (callback) => {
     }
 }
 
-export default useForm;
+
+export const useActions = () => {
+    const { dispatch } = useContext(StoreContext);
+    
+    function addEvent(newEvent) {
+        dispatch({ type: 'ADD_EVENT', value: newEvent });
+    }
+
+    function removeEvent(eventKey) {
+        dispatch({ type: 'REMOVE_EVENT', value: eventKey})
+    }
+    
+    return {
+      addEvent,
+      removeEvent
+    };
+};

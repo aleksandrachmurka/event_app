@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Form from './components/Form.js';
 import EventsList from './components/EventsList.js';
 
 const App = () => {
-  const [events, setEvents ] = useState([]);
-
-  const addEvent = (event) => {
-    setEvents([...events, event ]);
-  }
 
   return (
     <div className="app">
@@ -16,8 +11,8 @@ const App = () => {
         <h1>Events</h1>
       </header>
       <main className="app__main">
-        <Form addEvent={addEvent}/>
-        <EventsList events ={events}/>
+        <Form />
+        <EventsList/>
       </main>
     </div>
   );

@@ -1,15 +1,19 @@
-import React, { useState} from 'react';
-import useForm from '../customHooks';
+import React, { useState } from 'react';
+import { useForm, useActions } from '../customHooks';
 
 const Form = ({ ...props }) => {
     // <address>{event.location}</address>
     // <time datetime={event.date}></time>
+    //to do: clear input after submitting
 
     const { handleSubmit, handleInput, inputs } = useForm(passEvent);
+    const { addEvent } = useActions();
+    const [key, setKey] = useState(0)
 
     function passEvent() {
-        const event = {...inputs};
-        props.addEvent(event)
+        const newEvent = {...inputs, key: key};
+        addEvent(newEvent);
+        setKey(key + 1);
     }
     
     return (
@@ -26,7 +30,7 @@ const Form = ({ ...props }) => {
             <input type="time" onChange={handleInput} name="time" />
 
             <label>Add Event description</label>
-            <textarea onChange={handleInput} name="description" type="text" rows="5" cols="10" maxlength="360" />
+            <textarea onChange={handleInput} name="description" type="text" rows="5" cols="10" maxLength="360" />
 
             <label>Event Organizer</label>
             <input type="text" name="organizer"
