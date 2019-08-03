@@ -27,6 +27,7 @@ const EventsList = () => {
     
     return (
         <>
+        <h2>Filter events by title or description</h2>
         <div>
             <input type="text" onChange={filterEvents}/>
         </div> 
@@ -34,9 +35,6 @@ const EventsList = () => {
             {filteredEvents.map( event => ( 
                 <Event event={event} key={event.key} />
             ))}
-            {/* {state.events.map( event => ( 
-                <Event event={event} key={event.key} />
-            ))} */}
         </div>
         </>
     )

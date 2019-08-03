@@ -17,7 +17,7 @@ const Form = ({ ...props }) => {
     
     return (
         <>
-            <p>Add event</p>
+            <h2>Add event</h2>
 
             <form onSubmit={handleSubmit}>
                 
@@ -51,7 +51,8 @@ const Form = ({ ...props }) => {
                     id="organizer" onChange={handleInput} required />
                 </label>
 
-                <label for="category">Choose Event category
+                <label for="category">
+                    Choose Event category
                     <select onChange={handleInput} name="category" id="category" required>
                         <option value="" disabled selected>Please select category</option>
                         <option value="music">Music</option>
