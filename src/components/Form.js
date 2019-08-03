@@ -3,6 +3,7 @@ import { useForm, useActions } from '../customHooks';
 
 const Form = ({ ...props }) => {
     // <address>{event.location}</address>
+    // <time datetime={event.date}></time>
     //to do: clear input after submitting
 
     const { handleSubmit, handleInput, inputs } = useForm(passEvent);

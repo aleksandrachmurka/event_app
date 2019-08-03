@@ -22,17 +22,21 @@ const EventsList = () => {
         setFilteredEvents(filteredEvents);
     
     }
+
+    //to do: reset filter when input is empty
     
     return (
         <>
         <div>
-            <label>Filter events by title or description</label>
             <input type="text" onChange={filterEvents}/>
         </div> 
         <div>
             {filteredEvents.map( event => ( 
                 <Event event={event} key={event.key} />
             ))}
+            {/* {state.events.map( event => ( 
+                <Event event={event} key={event.key} />
+            ))} */}
         </div>
         </>
     )
