@@ -14,8 +14,13 @@ const EventsList = () => {
  
     const filterEvents = e => {
         const query = e.currentTarget.value;  
-        const result = filteredEvents.filter(event => event.title.includes(query) || event.description.includes(query));
-        setFilteredEvents(result);
+        if (query === '') {
+            setFilteredEvents(events);
+            return
+        }
+        const filteredEvents = events.filter(event => event.title.includes(query) || event.description.includes(query));
+        setFilteredEvents(filteredEvents);
+    
     }
 
     //to do: reset filter when input is empty
