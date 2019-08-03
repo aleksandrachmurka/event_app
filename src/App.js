@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className="app">
       <header className="app__header">
-        <h1>Events</h1>
+        <h1>Events - add, browse and take part</h1>
       </header>
       <main className="app__main">
         <Form />
